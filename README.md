@@ -1,154 +1,257 @@
-# 🚨 AI Acoustic Threat Detection System
+# AI Border Surveillance Command Center
 
-## 📌 Overview
-
-This project is a **research-grade AI-based border surveillance system** that detects acoustic threats in real-time.
-
-The system classifies audio into 4 critical categories:
-
-* 👤 Human Intrusion
-* 🚁 Drone / Mechanical Threat
-* 🐾 Animal Threat
-* 🌧 Environmental Noise
-
-It combines **deep learning + real-time UI + alert system** to simulate an intelligent border monitoring solution.
+An AI-powered intelligent border surveillance and acoustic threat detection system using Audio Spectrogram Transformers (AST), real-time monitoring dashboards, and threat evaluation visualization.
 
 ---
 
-## 🧠 Architecture
+# 📌 Project Overview
+
+This project detects and classifies potential border threats using environmental audio analysis and deep learning. The system uses transformer-based audio classification to identify suspicious acoustic activities such as:
+
+- Human Intrusion
+- Drone Threat
+- Animal Threat
+- Environmental Noise
+
+The platform provides:
+
+- Real-time surveillance dashboard
+- AI threat confidence monitoring
+- Tactical radar visualization
+- Threat analytics
+- Evaluation console
+- Multi-fold audio classification pipeline
+
+---
+
+# 🚀 Features
+
+## 🔥 AI Threat Detection
+- Transformer-based AST model
+- Real-time audio classification
+- Confidence-calibrated predictions
+- Multi-class threat detection
+
+## 📊 Surveillance Dashboard
+- Live monitoring interface
+- Tactical radar simulation
+- Threat confidence gauge
+- Threat level visualization
+- Real-time alerts
+
+## 📈 Evaluation Console
+- Live accuracy monitoring
+- Class-wise evaluation
+- Prediction logging
+- Progress visualization
+- High-confidence evaluation metrics
+
+## ⚡ Optimized ML Pipeline
+- Multi-fold dataset training
+- Balanced preprocessing
+- Early stopping
+- Confidence filtering
+- Dynamic class weighting
+
+---
+
+# 🧠 Model Architecture
+
+The system uses a pretrained Audio Spectrogram Transformer (AST) for intelligent acoustic threat classification.
+
+## Workflow
 
 Audio Input
-↓
-Log-Mel Spectrogram
-↓
-CNN Feature Extractor
-↓
-Vision Transformer (ViT)
-↓
-LSTM (Temporal Modeling)
-↓
+     ↓
+feature_extractor.py
+     ↓
+Mel Spectrogram Extraction
+     ↓
+Feature Normalization
+     ↓
+Audio Spectrogram Transformer (AST)
+     ↓
 Threat Classification
+     ↓
+Confidence Calibration
+     ↓
+Dashboard Visualization
 
----
+📂 Threat Classes
 
-## ⚙️ Technologies Used
+Class ID	Threat Type
 
-* PyTorch (Deep Learning)
-* torchaudio (Audio Processing)
-* timm (Vision Transformer)
-* Tkinter (UI Dashboard)
-* NumPy / Pandas
+0	Human Intrusion
+1	Drone Threat
+2	Animal Threat
+3	Environmental Noise
 
----
+⚙️ System Workflow
 
-## 🚀 Features
+1️⃣ Audio Collection
 
-* 🎯 Real-time threat detection dashboard
-* 📡 Radar-based visualization
-* 🗺 Location-based alert system
-* 🔊 Audio-based AI classification
-* 📊 Evaluation UI with accuracy tracking
-* ⚡ Fast prediction system
+Environmental audio is collected from the UrbanSound8K dataset and processed for threat simulation.
 
----
+2️⃣ Feature Extraction
 
-## 📂 Dataset
+The feature_extractor.py module handles:
 
-### Training:
+Audio preprocessing
+Resampling
+Mel Spectrogram generation
+Feature normalization
+AST-compatible formatting
 
-* ESC-50 Dataset
-* UrbanSound8K (Fold1 - 70%)
+3️⃣ Dataset Preprocessing
 
-### Testing:
+The precompute_features.py module performs:
 
-* UrbanSound8K (Fold2 - 100%)
+Multi-fold dataset loading
+Balanced dataset creation
+Feature caching
+Training/test split preparation
 
----
+4️⃣ Model Training
 
-## 📈 Model Performance
+The AST model is fine-tuned using:
 
-* Accuracy: **~60–70%**
-* Strong Classes:
+Balanced training
+Multi-fold learning
+Weighted loss optimization
+Early stopping
+Transformer fine-tuning
 
-  * Animal Threat
-  * Drone Threat
-* Moderate:
+5️⃣ Threat Prediction
 
-  * Human Intrusion
-* Challenging:
+The trained transformer model predicts:
 
-  * Environmental Noise (due to similarity with mechanical sounds)
+Threat category
+Confidence score
+Threat probability distribution
 
----
+6️⃣ Monitoring Dashboard
 
-## ▶️ How to Run
+Predictions are visualized through:
 
-### 1️⃣ Install Dependencies
+Threat radar
+Confidence indicators
+Tactical monitoring interface
+Real-time analytics
 
-pip install -r requirements.txt
+7️⃣ Evaluation Console
 
----
+The system evaluates:
 
-### 2️⃣ Run Real-Time System
+Accuracy
+Coverage
+Class-wise performance
+High-confidence predictions
 
-python main.py
 
----
+🏗️ Project Structure
+Border_Surveillance_Project/
+│
+├── core/
+│   ├── feature_extractor.py
+│   ├── precompute_features.py
+│   ├── predictor.py
+│   ├── train_model.py
+│
+├── models/
+│   ├── ast_model.py
+│
+├── ui/
+│   ├── dashboard.py
+│   ├── evaluation_ui.py
+│
+├── data/
+│
+├── dataset.py
+├── config.py
+├── evaluate_model.py
+├── main.py
+│
+└── README.md
 
-### 3️⃣ Evaluate Model
 
+🧪 Dataset
+
+Dataset Used
+UrbanSound8K
+
+Training Strategy
+
+Multi-fold balanced training
+Fold-based evaluation
+Environmental audio mapping
+Confidence-based prediction filtering
+
+📊 Performance
+
+Metric	Result
+Full Accuracy	~74%
+High Confidence Accuracy	~78%
+Coverage	~95%
+
+🛠️ Technologies Used
+
+Python
+PyTorch
+Torchaudio
+HuggingFace Transformers
+Tkinter
+NumPy
+Scikit-learn
+TQDM
+
+▶️ Installation
+
+Clone Repository
+git clone https://github.com/Henil994/Environmental-Noise-vs-Threat-Detection-System-for-Border-Surveillance-using-Machine-Learning.git
+
+Install Dependencies
+
+pip install torch torchaudio transformers scikit-learn tqdm numpy
+
+🚀 Run Project
+
+1️⃣ Precompute Features
+python -m core.precompute_features
+
+2️⃣ Train Model
+python -m core.train_model
+
+3️⃣ Evaluate Model
 python evaluate_model.py
 
----
+4️⃣ Launch Surveillance Dashboard
+python main.py
 
-## 🖥️ System Output
+📈 Evaluation Metrics
 
-* Real-time threat alerts
-* Confidence score
-* Threat level indicator (LOW / MEDIUM / HIGH)
-* Radar visualization
-* Alert sound (beep)
+The project measures:
 
----
+Overall Accuracy
+High-Confidence Accuracy
+Coverage Percentage
+Precision
+Recall
+F1-Score
 
-## 📊 Evaluation System
+🔐 Future Improvements
 
-* Live accuracy tracking
-* Class-wise performance
-* Prediction logs
+Live microphone integration
+Real border sensor deployment
+Thermal camera fusion
+Drone sound localization
+Edge AI optimization
+Real-time streaming support
 
----
+👨‍💻 Author
+Henil Patel
 
-## 🔮 Future Improvements
+AI-based Border Surveillance and Threat Detection System using Audio Spectrogram Transformers and Machine Learning.
 
-* Improve Drone vs Noise separation
-* Real-time microphone integration
-* Deploy on edge devices
-* Increase model accuracy with better dataset balancing
+📌 Disclaimer
 
----
-
-## 👨‍💻 Author
-
-**Henil Patel**
-
----
-
-## 📌 Note
-
-This project demonstrates a **complete AI pipeline** including:
-
-* Data processing
-* Model training
-* Real-time inference
-* UI integration
-* Evaluation system
-
----
-
-## ⭐ Project Highlights
-
-* End-to-end AI system
-* Real-time visualization
-* Multi-stage deep learning model
-* Practical surveillance application
+This project is developed for academic and research purposes to simulate AI-assisted border surveillance using environmental audio analysis.
